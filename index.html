@@ -7,9 +7,89 @@
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="script.js"></script>
   </head>
-  <body>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+    <body class="light-theme">
+      <div class="container">
+        <div class="calculator">
+          <form>
+            <div class="display">
+              <p class="result"></p>
+              <input
+                type="text"
+                name="display"
+                id="display"
+                placeholder="0"
+                disabled
+              />
+            </div>
+            <div class="buttons">
+              <div class="flex border">
+                <div class="themeToggle">
+                  <label class="switch">
+                    <input id="themeToggle" type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                  <p class="toggleText">SWITCH THEME</p>
+                </div>
+                <input type="button" value="C" id="yellow" />
+              </div>
+              <div class="border">
+                <input type="button" value="√" class="x-operators" />
+                <input type="button" value="%" class="x-operators" />
+                <input
+                  type="button"
+                  value="±"
+                  class="x-operators"
+                  onclick="display.value = -display.value"
+                />
+                <input
+                  type="button"
+                  value="×"
+                  class="b-operators"
+                  data-operation="*"
+                />
+              </div>
+              <div class="border">
+                <input type="button" value="7" />
+                <input type="button" value="8" />
+                <input type="button" value="9" />
+                <input
+                  type="button"
+                  value="÷"
+                  class="b-operators"
+                  data-operation="/"
+                />
+              </div>
+              <div>
+                <input type="button" value="4" />
+                <input type="button" value="5" />
+                <input type="button" value="6" />
+                <input
+                  type="button"
+                  value="-"
+                  class="b-operators"
+                  data-operation="-"
+                />
+              </div>
+              <div>
+                <input type="button" value="1" />
+                <input type="button" value="2" />
+                <input type="button" value="3" />
+                <input
+                  type="button"
+                  value="+"
+                  class="b-operators"
+                  data-operation="+"
+                />
+              </div>
+              <div>
+                <input type="button" value="." />
+                <input type="button" value="0" />
+                <input type="button" value="DEL" class="del" />
+                <input type="button" value="=" id="equal" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </body>
+  </html>
