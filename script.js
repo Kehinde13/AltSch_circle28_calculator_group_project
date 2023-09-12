@@ -71,7 +71,7 @@ buttons.addEventListener('click', (e) => {
           if(basicOperations.hasOwnProperty(result.at(-1)) && current){
             evaluation = true;
             result += current.replace(/^0+(?!\.)/, "") || "0";
-            inputDisplay = `=  + ${formatted(eval(result))}`;
+            inputDisplay = (isNaN(formatted(eval(result)))) ? `Bad Expression` : "= " + `${formatted(eval(result))}`;
             current = '';
           }
         }
@@ -117,10 +117,11 @@ if (
         : e.target.value === '%'
         ? `${formatted(eval(current.replace(/^0+(?!\.)/, '') / 100))}`
         : `${formatted(eval(-current.replace(/^0+(?!\.)/, '')))}`;
-    inputDisplay = `= ` + current;
+    inputDisplay = isNaN(current) ? `Bad Expression` : `= ` + current;
   }
 }
 
+// Handle number button clicks
 if (!isNaN(+e.target.value)) {
     if (
       result.split('').includes('√') ||
@@ -141,28 +142,27 @@ if (!isNaN(+e.target.value)) {
     evaluation = false;
   }
 
-  //Handle basic operation button clicks
-  if(e.target.classList.contains('b-operatiors')){
-    if(
+  // Handle basic operation button clicks
+  if (e.target.classList.contains('b-operators')) {
+    if (
       result.split('').includes('√') ||
       result.split('').includes('%') ||
       result.split('').includes('±')
     ) {
-      result = "";
+      result = '';
     }
-    if(eval(current.replace(/^0+(?!\.)/, '') || '0') != '0')
-       {
-        result += (current.replace(/^0+(?!\.)/, '') || '0')   
-        + `${e.target.dataset.operation}`;
-        current = '';
-      }
-      if(result && !basicOperations.hasOwnProperty(result.at(-1)))
-        {
-          result += `${e.target.dataset.operation}`;
-        }
-      if(basicOperations.hasOwnProperty(result.at(-1))){
-        result = result.slice(0, -1) + `${e.target.dataset.operation}`;
-      }  
+    if (eval(current.replace(/^0+(?!\.)/, '') || '0') != '0') {
+      result +=
+        (current.replace(/^0+(?!\.)/, '') || '0') +
+        `${e.target.dataset.operation}`;
+      current = '';
+    }
+    if (result && !basicOperations.hasOwnProperty(result.at(-1))) {
+      result += `${e.target.dataset.operation}`;
+    }
+    if (basicOperations.hasOwnProperty(result.at(-1))) {
+      result = result.slice(0, -1) + `${e.target.dataset.operation}`;
+    }
   }
 
   // Handle dot button click
