@@ -175,5 +175,11 @@ if (!isNaN(+e.target.value)) {
       current += '.';
     }
   }
+
+// Update result and display
+resultEL.textContent = result.replace(/^0+(?!\.)/, '');
+display.value = inputDisplay.startsWith('.')
+  ? '0' + inputDisplay.replace(/^0+(?!\.)/, '')
+  : inputDisplay.replace(/^0+(?!\.)/, '');
 });
 
