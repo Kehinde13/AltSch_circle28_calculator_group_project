@@ -41,3 +41,11 @@ if (savedTheme) {
   if (savedTheme === 'dark-theme') theme('dark');
   else theme('light');
 }
+
+// Handle Enter key to trigger evaluation
+form.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    equal.click();
+  }
+});
