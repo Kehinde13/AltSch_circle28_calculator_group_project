@@ -49,3 +49,13 @@ form.addEventListener('keypress', function (e) {
     equal.click();
   }
 });
+
+// Function to format numbers with a digit threshold
+function formatted(number, digitThreshold = 10) {
+  const digitCount = `${number}`.replace(/^0+|\.+/g, '').length;
+  if (digitCount > digitThreshold) {
+    return number.toExponential(7).replace('+', '');
+  } else {
+    return number.toLocaleString();
+  }
+}
