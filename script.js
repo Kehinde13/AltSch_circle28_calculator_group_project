@@ -121,4 +121,24 @@ if (
   }
 }
 
+if (!isNaN(+e.target.value)) {
+    if (
+      result.split('').includes('√') ||
+      result.split('').includes('%') ||
+      result.split('').includes('±')
+    ) {
+      current = result = '';
+    }
+    if (result && basicOperations.hasOwnProperty(result.at(-1))) {
+      inputDisplay = current;
+      evaluation = false;
+    }
+    if (evaluation === true) {
+      result = current;
+    }
+    current += e.target.value;
+    inputDisplay = formatted(+current);
+    evaluation = false;
+  }
 });
+
