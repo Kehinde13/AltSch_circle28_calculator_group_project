@@ -140,5 +140,30 @@ if (!isNaN(+e.target.value)) {
     inputDisplay = formatted(+current);
     evaluation = false;
   }
+
+  //Handle basic operation button clicks
+  if(e.target.classList.contains('b-operatiors')){
+    if(
+      result.split('').includes('√') ||
+      result.split('').includes('%') ||
+      result.split('').includes('±')
+    ) {
+      result = "";
+    }
+    if(eval(current.replace(/^0+(?!\.)/, '') || '0') != '0')
+       {
+        result += (current.replace(/^0+(?!\.)/, '') || '0')   
+        + `${e.target.dataset.operation}`;
+        current = '';
+      }
+      if(result && !basicOperations.hasOwnProperty(result.at(-1)))
+        {
+          result += `${e.target.dataset.operation}`;
+        }
+      if(basicOperations.hasOwnProperty(result.at(-1))){
+        result = result.slice(0, -1) + `${e.target.dataset.operation}`;
+      }  
+    
+  }
 });
 
