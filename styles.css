@@ -9,3 +9,47 @@ body {
   background-color: white;
 }
 
+/* THEME TOGGLE */
+
+body.light-theme {
+  --toggle-text: #c9d1d6;
+  --slider-switch: #f4f5f7;
+  --background-color: #cccccc;
+  --x-operators-color: #d3ad59;
+  --b-operators-color: #430d71;
+  --slider-background: #a5adb0;
+  --primary-text-color: #5d6a73;
+  --x-operators-background: #f4efe3;
+  --b-operators-background: #e1d5e9;
+  --primary-button-background: #f1f3f4;
+  --button-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
+    rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  --slider-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  --calculator-background: linear-gradient(to bottom, #f5f5f5, #cccccc);
+  --background-image: linear-gradient(to bottom, #e1d9d1 0%, #e1d9d1 100%);
+}
+
+body.dark-theme {
+  --toggle-text: #555658;
+  --slider-switch: #a8abb1;
+  --background-color: #2a2e31;
+  --x-operators-color: #d39334;
+  --b-operators-color: #ce86ee;
+  --slider-background: #2a2e31;
+  --primary-text-color: #a5afae;
+  --b-operators-background: #4c365f;
+  --x-operators-background: #4c453b;
+  --background-image: linear-gradient(
+    to bottom,
+    rgba(40, 40, 43, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  --primary-button-background: #373b3d;
+  --button-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  --slider-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  --calculator-background: linear-gradient(to bottom, #2a2e31, #0b0b0b);
+}
