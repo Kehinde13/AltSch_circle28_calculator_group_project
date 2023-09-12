@@ -163,7 +163,17 @@ if (!isNaN(+e.target.value)) {
       if(basicOperations.hasOwnProperty(result.at(-1))){
         result = result.slice(0, -1) + `${e.target.dataset.operation}`;
       }  
-    
+  }
+
+  // Handle dot button click
+  if (e.target.value === '.') {
+    if (current === '') {
+      inputDisplay = current = 0 + e.target.value;
+    }
+    if (!current.includes('.')) {
+      inputDisplay += '.';
+      current += '.';
+    }
   }
 });
 
