@@ -87,7 +87,7 @@ if (e.target.value === 'C') {
 // Handle backspace button click
 if (e.target.value === 'DEL') {
   current = current.toString().slice(0, -1);
-  inputDisplay = current;
-}
+  inputDisplay = formatted(+current);
+  }
 
 });
