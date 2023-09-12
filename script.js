@@ -59,3 +59,26 @@ function formatted(number, digitThreshold = 10) {
     return number.toLocaleString();
   }
 }
+
+// Event listener for button clicks
+buttons.addEventListener('click', (e) => {
+
+  //handle equal button
+    if(e.target.value === "=") {
+      //check for basic operations in the result
+      Object.keys(basicOperations).forEach((n) => {
+        if(result.split("").includes(n)) {
+          if(basicOperations.hasOwnProperty(result.at(-1)) && current){
+            evaluation = true;
+            result += current.replace(/^0+(?!\.)/, "") || "0";
+            inputDisplay = `=  + ${formatted(eval(result))}`;
+            current = '';
+          }
+        }
+      });
+    }
+
+
+
+
+});
