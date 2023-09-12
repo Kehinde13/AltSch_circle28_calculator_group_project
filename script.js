@@ -88,6 +88,37 @@ if (e.target.value === 'C') {
 if (e.target.value === 'DEL') {
   current = current.toString().slice(0, -1);
   inputDisplay = formatted(+current);
-  }
+}
+
+// Handle square root, percentage, and plus/minus button clicks
+if (
+  (e.target.value === '√' ||
+    e.target.value === '%' ||
+    e.target.value === '±') &&
+  inputDisplay !== '' &&
+  inputDisplay !== '0' &&
+  !/^0+$/.test(current)
+) {
+  if (evaluation === true) {
+    current = `${eval(result)}`;
+    evaluation = false;
+  }
+  if (
+    result.split('').includes(e.target.value) ||
+    !basicOperations.hasOwnProperty(result.at(-1))
+  ) {
+    result =
+      e.target.value === '%'
+        ? current.replace(/^0+(?!\.)/, '') + e.target.value
+        : e.target.value + current.replace(/^0+(?!\.)/, '');
+    current =
+      e.target.value === '√'
+        ? `${formatted(Math.sqrt(eval(current.replace(/^0+(?!\.)/, ''))))}`
+        : e.target.value === '%'
+        ? `${formatted(eval(current.replace(/^0+(?!\.)/, '') / 100))}`
+        : `${formatted(eval(-current.replace(/^0+(?!\.)/, '')))}`;
+    inputDisplay = `= ` + current;
+  }
+}
 
 });
