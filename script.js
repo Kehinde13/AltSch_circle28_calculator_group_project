@@ -78,7 +78,16 @@ buttons.addEventListener('click', (e) => {
       });
     }
 
+// Handle clear button click
+if (e.target.value === 'C') {
+  inputDisplay = result = current = '';
+  evaluation = false;
+}
 
-
+// Handle backspace button click
+if (e.target.value === 'DEL') {
+  current = current.toString().slice(0, -1);
+  inputDisplay = current;
+}
 
 });
