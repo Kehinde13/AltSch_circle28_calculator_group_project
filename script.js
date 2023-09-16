@@ -71,7 +71,7 @@ buttons.addEventListener('click', (e) => {
           if(basicOperations.hasOwnProperty(result.at(-1)) && current){
             evaluation = true;
             result += current.replace(/^0+(?!\.)/, "") || "0";
-            inputDisplay = (isNaN(formatted(eval(result)))) ? `Bad Expression` : "= " + `${formatted(eval(result))}`;
+            inputDisplay = (isNaN(eval(result))) ? `Bad Expression` : "= " + `${formatted(eval(result))}`;
             current = '';
           }
         }
