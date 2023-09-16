@@ -72,4 +72,5 @@ We would like to express our gratitude to all the members of the Circle 28 team 
 Happy calculating!
 
 [Quickly view and test on StackBlitz ⚡️](https://stackblitz.com/edit/web-platform-grfkec)
+
 [View the live site on the web](https://kehinde13.github.io/AltSch_circle28_calculator_group_project/)
